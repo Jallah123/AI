@@ -84,16 +84,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cow.cpp" />
+    <ClCompile Include="Edge.cpp" />
     <ClCompile Include="FWApplication.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="NumberUtility.cpp" />
+    <ClCompile Include="Rabbit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Cow.h" />
+    <ClInclude Include="Edge.h" />
     <ClInclude Include="FWApplication.h" />
     <ClInclude Include="IGameObject.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="NumberUtility.h" />
+    <ClInclude Include="Rabbit.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\cat.bmp" />
+    <Image Include="..\Resources\cow-1.png" />
+    <Image Include="..\Resources\cow-2.png" />
+    <Image Include="..\Resources\games-6.png" />
+    <Image Include="..\Resources\gun-metal.png" />
+    <Image Include="..\Resources\lemmling_Cartoon_cow.png" />
+    <Image Include="..\Resources\Node.png" />
+    <Image Include="..\Resources\pill.png" />
+    <Image Include="..\Resources\rabbit-2.png" />
+    <Image Include="..\Resources\rabbit-3.png" />
+    <Image Include="..\Resources\SAA0625.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\Resources\OpenSans-Regular.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

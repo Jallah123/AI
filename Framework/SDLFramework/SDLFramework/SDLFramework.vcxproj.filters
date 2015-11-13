@@ -12,12 +12,36 @@
     <Filter Include="Week1">
       <UniqueIdentifier>{6469432c-2a1e-411f-a745-f6b8fe556dad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{90f7b5e1-fcec-42a8-82b5-c02a9d96d1c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Util">
+      <UniqueIdentifier>{d7b9194b-baef-4c3d-b3a9-a108df1ca15e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Util">
+      <UniqueIdentifier>{6a07e467-96b3-43ee-96cb-66513926667a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FWApplication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberUtility.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Edge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rabbit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -34,5 +58,60 @@
     <ClInclude Include="IGameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberUtility.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Edge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rabbit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\cow-2.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\Resources\games-6.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\Resources\gun-metal.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\Resources\lemmling_Cartoon_cow.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\Resources\pill.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\Resources\rabbit-2.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\Resources\rabbit-3.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\Resources\SAA0625.gif">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\Resources\cat.bmp">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\Resources\cow-1.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\Resources\Node.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\Resources\OpenSans-Regular.ttf">
+      <Filter>Assets</Filter>
+    </Font>
   </ItemGroup>
 </Project>

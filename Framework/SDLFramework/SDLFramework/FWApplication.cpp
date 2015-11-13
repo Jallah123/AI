@@ -129,11 +129,11 @@ void FWApplication::DrawTexture(SDL_Texture * texture, int xOffset, int yOffset)
 
 	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
 	SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
-	SDL_RenderCopy(mRenderer, texture, &rect, &rect);
+	SDL_RenderCopy(mRenderer, texture, 0, &rect);
 }
 void FWApplication::DrawTexture(SDL_Texture * texture, int xOffset, int yOffset, int width, int height)
 {
-	SDL_Rect rect = { xOffset - (width / 2), yOffset - (height / 2), width, height };
+	SDL_Rect rect = { xOffset, yOffset, width, height };
 
 	//SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
 	SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
@@ -191,6 +191,8 @@ void FWApplication::UpdateGameObjects()
 
 void FWApplication::RenderGameObjects()
 {
+	SDL_SetRenderDrawColor(mRenderer, 255, 255, 255, 255);
+	SDL_RenderClear(mRenderer);
 	for (IGameObject * obj : mGameObjects)
 	{
 		obj->Draw();
@@ -209,7 +211,13 @@ void FWApplication::RemoveTexture(SDL_Texture * texture)
 
 void FWApplication::DrawLine(int startPosX, int startPosY, int endPosX, int endPosY)
 {
+	SDL_SetRenderDrawColor(mRenderer, 0, 0, 0, 255);
 	SDL_RenderDrawLine(mRenderer, startPosX, startPosY, endPosX, endPosY);
+}
+
+void FWApplication::DrawLine(IGameObject* obj1, IGameObject* obj2)
+{
+	DrawLine(obj1->GetBoundingBox().x, obj1->GetBoundingBox().y, obj2->GetBoundingBox().x, obj2->GetBoundingBox().y);
 }
 
 void FWApplication::SetColor(const Color & color)
@@ -220,6 +228,7 @@ void FWApplication::SetColor(const Color & color)
 
 void FWApplication::DrawRect(int startPosX, int startPosY, int width, int height, bool fill)
 {
+	SDL_SetRenderDrawColor(mRenderer, 0, 255, 0, 255);
 	SDL_Rect rect = { startPosX, startPosY, width, height };
 
 	if (fill)

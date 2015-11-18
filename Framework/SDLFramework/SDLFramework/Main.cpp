@@ -36,7 +36,7 @@ int main(int args[])
 		nodes.push_back(new Node{ 500, 570 });
 		nodes.push_back(new Node{ 480, 470 });
 		nodes.push_back(new Node{ 40, 340 });
-		nodes.push_back(new Node{ 300, 10 });
+		nodes.push_back(new Node{ 250, 10 });
 		nodes.push_back(new Node{ 400, 75 });
 		nodes.push_back(new Node{ 400, 250 });
 		nodes.push_back(new Node{ 400, 300 });

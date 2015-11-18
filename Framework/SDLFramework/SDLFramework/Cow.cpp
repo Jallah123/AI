@@ -1,7 +1,8 @@
 #include "Cow.h"
 #include <vector>
-#include <limits>
 #include <iostream>
+#include <queue>
+#include <set>
 
 Cow::Cow()
 {
@@ -28,22 +29,35 @@ void Cow::ResetNodes(std::vector<Node*>& nodes)
 {
 	for each (auto& Node in nodes)
 	{
-		Node->weight = std::numeric_limits<int>::max();
+		Node->weight = 100000;
 		Node->prevNode = nullptr;
 	}
 }
 
+struct Comparetor {
+	bool operator()(const Node* node1, const Node* node2) {
+		return node1->weight < node2->weight;
+	}
+};
+
 void Cow::CalculatePath(Node* rabbitNode) 
 {
 	std::vector<Node*> ClosedSet;
-	std::vector<Node*> OpenSet;
+	std::set<Node*> OpenSet;
+	std::priority_queue<Node*, std::vector<Node*>, Comparetor> NodeQueue;
 	currentNode->weight = 0;
-	OpenSet.push_back(currentNode);
+	NodeQueue.push(currentNode);
+	OpenSet.insert(currentNode);
 
-	while (!OpenSet.empty())
+	while (!NodeQueue.empty())
 	{
-		Node* cNode = GetCheapestNode(OpenSet);
-		OpenSet.erase(std::find(OpenSet.begin(), OpenSet.end(), cNode));
+		// Node* cNode = GetCheapestNode(OpenSet);
+		// OpenSet.erase(std::find(OpenSet.begin(), OpenSet.end(), cNode));
+
+		Node* cNode = NodeQueue.top();
+		// OpenSet2.pop();
+		NodeQueue.pop();
+		OpenSet.erase(cNode);
 
 		if (cNode == rabbitNode)
 		{
@@ -67,9 +81,10 @@ void Cow::CalculatePath(Node* rabbitNode)
 				weight.first->weight = weight.second;
 				weight.first->prevNode = cNode;
 			}
-			if (std::find(ClosedSet.begin(), ClosedSet.end(), weight.first) == ClosedSet.end() && std::find(OpenSet.begin(), OpenSet.end(), weight.first) == OpenSet.end())
+			if (std::find(ClosedSet.begin(), ClosedSet.end(), weight.first) == ClosedSet.end() && find(OpenSet.begin(), OpenSet.end(), weight.first) == OpenSet.end())
 			{
-				OpenSet.push_back(weight.first);
+				NodeQueue.push(weight.first);
+				OpenSet.insert(weight.first);
 			}
 		}
 		ClosedSet.push_back(cNode);

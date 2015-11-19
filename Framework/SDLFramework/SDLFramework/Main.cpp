@@ -115,7 +115,7 @@ int main(int args[])
 			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym){
 				case ' ':
-					c->NextStep(r, nodes);
+					c->NextStep(r, nodes, edges);
 				default:
 					break;
 				}

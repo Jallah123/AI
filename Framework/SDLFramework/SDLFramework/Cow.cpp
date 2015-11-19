@@ -2,6 +2,7 @@
 #include <vector>
 #include <limits>
 #include <iostream>
+#include <queue>
 
 Cow::Cow()
 {
@@ -9,12 +10,12 @@ Cow::Cow()
 	mApplication->AddRenderable(this);
 }
 
-void Cow::NextStep(Rabbit* r, std::vector<Node*> nodes)
+void Cow::NextStep(Rabbit* r, std::vector<Node*> nodes, std::vector<Edge*>& edges)
 {
 	if (path.empty())
 	{
 		r->ChangePosition(nodes);
-		ResetNodes(nodes);
+		ResetNodes(nodes, edges);
 		CalculatePath(r->GetCurrentNode());
 		return;
 	}
@@ -24,26 +25,44 @@ void Cow::NextStep(Rabbit* r, std::vector<Node*> nodes)
 	mY = currentNode->GetBoundingBox().y;
 }
 
-void Cow::ResetNodes(std::vector<Node*>& nodes)
+void Cow::ResetNodes(std::vector<Node*>& nodes, std::vector<Edge*>& edges)
 {
 	for each (auto& Node in nodes)
 	{
-		Node->weight = std::numeric_limits<int>::max();
+		Node->weight = 100000;
 		Node->prevNode = nullptr;
 	}
+	for each (auto& Edge in edges)
+	{
+		Edge->Weight = 100000;
+	}
 }
+
+struct lessThan {
+	bool operator()(const Node* node1, const Node* node2) const
+	{
+		return node1->weight < node2->weight;
+	}
+};
 
 void Cow::CalculatePath(Node* rabbitNode) 
 {
 	std::vector<Node*> ClosedSet;
-	std::vector<Node*> OpenSet;
+	//std::vector<Node*> OpenSet;
+	std::priority_queue<Node*, std::vector<Node*>, lessThan> OpenSet;
+	std::vector<Node*> NodesInOpenSet;
 	currentNode->weight = 0;
-	OpenSet.push_back(currentNode);
+//	OpenSet.push_back(currentNode);
+	OpenSet.push(currentNode);
+	NodesInOpenSet.push_back(currentNode);
 
 	while (!OpenSet.empty())
 	{
-		Node* cNode = GetCheapestNode(OpenSet);
-		OpenSet.erase(std::find(OpenSet.begin(), OpenSet.end(), cNode));
+	//	Node* cNode = GetCheapestNode(OpenSet);
+	//	OpenSet.erase(std::find(OpenSet.begin(), OpenSet.end(), cNode));
+
+		Node* cNode = OpenSet.top();
+		OpenSet.pop();
 
 		if (cNode == rabbitNode)
 		{
@@ -56,6 +75,7 @@ void Cow::CalculatePath(Node* rabbitNode)
 			}
 			std::reverse(correctPath.begin(), correctPath.end());
 			path = correctPath;
+			
 			return;
 		}
 
@@ -67,9 +87,11 @@ void Cow::CalculatePath(Node* rabbitNode)
 				weight.first->weight = weight.second;
 				weight.first->prevNode = cNode;
 			}
-			if (std::find(ClosedSet.begin(), ClosedSet.end(), weight.first) == ClosedSet.end() && std::find(OpenSet.begin(), OpenSet.end(), weight.first) == OpenSet.end())
+			if (std::find(ClosedSet.begin(), ClosedSet.end(), weight.first) == ClosedSet.end() && std::find(NodesInOpenSet.begin(), NodesInOpenSet.end(), weight.first) == NodesInOpenSet.end())
 			{
-				OpenSet.push_back(weight.first);
+				//OpenSet.push_back(weight.first);
+				OpenSet.push(weight.first);
+				NodesInOpenSet.push_back(weight.first);
 			}
 		}
 		ClosedSet.push_back(cNode);
@@ -89,6 +111,7 @@ std::pair<Node*, int> Cow::GetWeight(Node* n, Node* rabbitNode, Edge* e)
 		weight += e->n1->DistanceTo(rabbitNode) + e->n1->weight;
 		pair = std::make_pair(e->n1, weight);
 	}
+	e->Weight = weight;
 	return pair;
 }
 

@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <queue>
+#include <limits>
 #include <set>
 
 Cow::Cow()
@@ -29,7 +30,7 @@ void Cow::ResetNodes(std::vector<Node*>& nodes)
 {
 	for each (auto& Node in nodes)
 	{
-		Node->weight = 100000;
+		Node->weight = std::numeric_limits<int>::max();
 		Node->prevNode = nullptr;
 	}
 }
@@ -61,6 +62,7 @@ void Cow::CalculatePath(Node* rabbitNode)
 
 		if (cNode == rabbitNode)
 		{
+			// rabbitNode->prevNode = ClosedSet.at(ClosedSet.size() - 1);
 			ClosedSet.push_back(rabbitNode);
 			std::vector<Node*> correctPath;
 			while (cNode != this->currentNode)
@@ -69,6 +71,9 @@ void Cow::CalculatePath(Node* rabbitNode)
 				cNode = cNode->prevNode;
 			}
 			std::reverse(correctPath.begin(), correctPath.end());
+			path = correctPath;
+			
+			ClosedSet.push_back(rabbitNode);
 			path = correctPath;
 			return;
 		}
@@ -87,6 +92,9 @@ void Cow::CalculatePath(Node* rabbitNode)
 				OpenSet.insert(weight.first);
 			}
 		}
+/*		if (!ClosedSet.empty()) {
+			cNode->prevNode = ClosedSet.at(ClosedSet.size() - 1);
+		}*/
 		ClosedSet.push_back(cNode);
 	}
 }

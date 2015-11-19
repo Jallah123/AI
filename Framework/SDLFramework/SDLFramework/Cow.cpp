@@ -52,17 +52,12 @@ void Cow::CalculatePath(Node* rabbitNode)
 
 	while (!NodeQueue.empty())
 	{
-		// Node* cNode = GetCheapestNode(OpenSet);
-		// OpenSet.erase(std::find(OpenSet.begin(), OpenSet.end(), cNode));
-
 		Node* cNode = NodeQueue.top();
-		// OpenSet2.pop();
 		NodeQueue.pop();
 		OpenSet.erase(cNode);
 
 		if (cNode == rabbitNode)
 		{
-			// rabbitNode->prevNode = ClosedSet.at(ClosedSet.size() - 1);
 			ClosedSet.push_back(rabbitNode);
 			std::vector<Node*> correctPath;
 			while (cNode != this->currentNode)
@@ -92,9 +87,6 @@ void Cow::CalculatePath(Node* rabbitNode)
 				OpenSet.insert(weight.first);
 			}
 		}
-/*		if (!ClosedSet.empty()) {
-			cNode->prevNode = ClosedSet.at(ClosedSet.size() - 1);
-		}*/
 		ClosedSet.push_back(cNode);
 	}
 }

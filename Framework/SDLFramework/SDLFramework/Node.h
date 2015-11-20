@@ -1,21 +1,22 @@
 #pragma once
 #include "IGameObject.h"
 #include <vector>
-#include <limits>
 #include "Edge.h"
 
 class Node :
 	public IGameObject
 {
 public:
-	Node();
 	Node(int x, int y);
+	void Draw();
 	void Update(float dt);
-	int weight = std::numeric_limits<int>::max();
+	int weight = 100000;
 	void AddEdge(Edge* edge) { edges.push_back(edge); };
 	bool operator<(const Node& otherNode) {
 		return weight < otherNode.weight;
 	}
+	static int next_id;
+	int id = 0;
 	std::vector<Edge*> edges;
 	Node* prevNode{ nullptr };
 	~Node();

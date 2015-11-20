@@ -45,7 +45,7 @@ int main(int args[])
 		nodes.push_back(new Node{ 40, 340 });
 		nodes.push_back(new Node{ 250, 10 });
 		nodes.push_back(new Node{ 400, 75 });
-		nodes.push_back(new Node{ 450, 250 });
+		nodes.push_back(new Node{ 300, 200 });
 		nodes.push_back(new Node{ 400, 300 });
 	}
 
@@ -65,7 +65,10 @@ int main(int args[])
 		edges.push_back(createEdge(nodes.at(10), nodes.at(11)));
 		edges.push_back(createEdge(nodes.at(6), nodes.at(11)));
 		edges.push_back(createEdge(nodes.at(1), nodes.at(8)));
+		edges.push_back(createEdge(nodes.at(2), nodes.at(11)));
+		edges.push_back(createEdge(nodes.at(1), nodes.at(10)));
 		edges.push_back(createEdge(nodes.at(3), nodes.at(7)));
+		edges.push_back(createEdge(nodes.at(11), nodes.at(7)));
 
 		/*
 		edges.push_back(new Edge{ nodes.at(1), nodes.at(8) });
@@ -82,10 +85,10 @@ int main(int args[])
 
 
 	Cow* c = new Cow;
-	c->SetCurrentNode(nodes.at(0));
+	c->SetCurrentNode(nodes.at(2));
 
 	Rabbit* r = new Rabbit;
-	r->SetCurrentNode(nodes.at(7));
+	r->SetCurrentNode(nodes.at(6));
 
 	c->CalculatePath(r->GetCurrentNode());
 
@@ -105,7 +108,7 @@ int main(int args[])
 			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym){
 				case ' ':
-					c->NextStep(r, nodes);
+					c->NextStep(r, nodes, edges);
 				default:
 					break;
 				}
@@ -116,6 +119,9 @@ int main(int args[])
 		application->RenderGameObjects();
 		for each (auto& edge in edges)
 		{
+			int xmidpoint = (edge->n1->GetBoundingBox().x + edge->n2->GetBoundingBox().x) / 2;
+			int ymidpoint = (edge->n1->GetBoundingBox().y + edge->n2->GetBoundingBox().y) / 2;
+			application->DrawText(std::to_string(edge->Weight), xmidpoint, ymidpoint);
 			application->DrawLine(edge->n1, edge->n2);
 		}
 		for each (auto& node in c->path)

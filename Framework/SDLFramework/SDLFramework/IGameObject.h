@@ -145,7 +145,7 @@ public:
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	virtual float DistanceTo(IGameObject * obj)
 	{
-		return sqrt(pow((float)obj->GetBoundingBox().x - mX, 2) + pow((float)obj->GetBoundingBox().y - mY, 2));
+		return sqrt(pow((float)obj->GetBoundingBox().x - mX + mWidth / 2, 2) + pow((float)obj->GetBoundingBox().y - mY + mHeight / 2, 2));
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////

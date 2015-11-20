@@ -49,7 +49,7 @@ struct Comparetor {
 	}
 };
 
-void Cow::CalculatePath(Node* rabbitNode) 
+void Cow::CalculatePath(Node* targetNode)
 {
 	std::vector<Node*> ClosedSet;
 	std::set<Node*> OpenSet;
@@ -65,7 +65,7 @@ void Cow::CalculatePath(Node* rabbitNode)
 		NodeQueue.erase(find(NodeQueue.begin(), NodeQueue.end(), cNode));
 		OpenSet.erase(cNode);
 
-		if (cNode == rabbitNode)
+		if (cNode == targetNode)
 		{
 			std::vector<Node*> correctPath;
 			while (cNode != this->currentNode)
@@ -82,12 +82,12 @@ void Cow::CalculatePath(Node* rabbitNode)
 		for each (auto& edge in cNode->edges)
 		{
 			// weight = cNode->weight + anderenode->distanceTo(rabbitNode) + anderenode->distanceTo(cNode)
-			Node* differentNode = GetDifferentNodeFromEdge(edge, cNode);
+			Node* differentNode = edge->GetDifferentNodeFromEdge(cNode);
 			if (find(ClosedSet.begin(), ClosedSet.end(), differentNode) != ClosedSet.end())
 			{
 				continue;
 			}
-			int weight = cNode->weight + (differentNode->DistanceTo(rabbitNode) / 10) + differentNode->DistanceTo(cNode);
+			int weight = cNode->weight + (differentNode->DistanceTo(targetNode) / 10) + differentNode->DistanceTo(cNode);
 
 			edge->Weight = differentNode->DistanceTo(cNode);
 
@@ -105,15 +105,6 @@ void Cow::CalculatePath(Node* rabbitNode)
 		}
 
 	}
-}
-
-Node* Cow::GetDifferentNodeFromEdge(Edge* e, Node* n)
-{
-	if (e->n1 == n)
-	{
-		return e->n2;
-	}
-	return e->n1;
 }
 
 std::pair<Node*, int> Cow::GetWeight(Node* n, Node* rabbitNode, Edge* e)
@@ -145,15 +136,6 @@ Node* Cow::GetCheapestNode(std::vector<Node*>& nodes)
 		}
 	}
 	return cheapest;
-}
-
-void Cow::SetCurrentNode(Node* newNode)
-{
-	currentNode = newNode;
-	mX = newNode->GetBoundingBox().x;
-	mY = newNode->GetBoundingBox().y;
-	mWidth = 30;
-	mHeight = 30;
 }
 
 void Cow::Update(float dt)

@@ -16,18 +16,8 @@ void Rabbit::ChangePosition(std::vector<Node*> nodes)
 		newNode = nodes.at(NumberUtility::GenerateRandomNumber(0, nodes.size() - 1));
 	}
 	SetCurrentNode(newNode);
-	
-}
 
-void Rabbit::SetCurrentNode(Node* newNode)
-{
-	currentNode = newNode;
-	mX = newNode->GetBoundingBox().x;
-	mY = newNode->GetBoundingBox().y;
-	mWidth = 30;
-	mHeight = 30;
 }
-
 
 Rabbit::~Rabbit()
 {

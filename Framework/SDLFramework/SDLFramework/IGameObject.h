@@ -2,7 +2,6 @@
 #include "FWApplication.h"
 #include <SDL_rect.h>
 
-
 class IGameObject
 {
 public:

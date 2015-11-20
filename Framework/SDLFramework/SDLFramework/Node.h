@@ -18,6 +18,7 @@ public:
 	static int next_id;
 	int id = 0;
 	std::vector<Edge*> edges;
+	std::vector<Edge*> GetEdges() { return edges; };
 	Node* prevNode{ nullptr };
 	~Node();
 };

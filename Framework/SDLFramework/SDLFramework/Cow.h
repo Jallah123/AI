@@ -16,7 +16,5 @@ public:
 	Node* GetCheapestNode(std::vector<Node*>& nodes);
 	std::vector<Node*> path;
 	~Cow();
-protected:
-	Node* currentNode{ nullptr };
 };
 

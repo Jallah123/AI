@@ -105,7 +105,7 @@ FWApplication::FWApplication(int offsetX, int offsetY, int width, int height)
 		edges.push_back(createEdge(nodes.at(11), nodes.at(7)));
 	}
 
-	r = new Rabbit{nodes.at(7)};
+	r = new Rabbit{ nodes.at(7) };
 	c = new Cow{ nodes.at(1) };
 	p = new Pill{ nodes.at(0) };
 }

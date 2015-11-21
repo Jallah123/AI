@@ -9,6 +9,4 @@ public:
 	Rabbit(Node* _currentNode);
 	void ChangePosition(std::vector<Node*> nodes);
 	~Rabbit();
-protected:
-	Node* currentNode{ nullptr };
 };

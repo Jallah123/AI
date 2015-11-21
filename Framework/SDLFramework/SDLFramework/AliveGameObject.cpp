@@ -5,7 +5,7 @@
 
 AliveGameObject::AliveGameObject(Node* n)
 {
-	currentNode = n;
+	SetCurrentNode(n);
 	currentState = StateFactory::Create(State::WANDERING, this);
 	mWidth = 30;
 	mHeight = 30;

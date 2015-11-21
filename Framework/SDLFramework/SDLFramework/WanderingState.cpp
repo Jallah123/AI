@@ -25,7 +25,7 @@ void WanderingState::CheckState()
 	if (Cow* c = dynamic_cast<Cow*>(owner))
 	{
 		int number = NumberUtility::GenerateRandomNumber(0, 10);
-		if (number > 1)
+		if (number == 1)
 		{
 			std::cout << "new pill search state" << std::endl;
 			owner->ChangeState(StateFactory::Create(State::SEARCH_PILL, owner));
@@ -34,7 +34,7 @@ void WanderingState::CheckState()
 	if (Rabbit* c = dynamic_cast<Rabbit*>(owner))
 	{
 		int number = NumberUtility::GenerateRandomNumber(0, 10);
-		if (number > 1)
+		if (number == 1)
 		{
 			std::cout << "new weapon searching state" << std::endl;
 			owner->ChangeState(StateFactory::Create(State::SEARCH_WEAPON, owner));

@@ -10,18 +10,13 @@ ChaseRabbitState::ChaseRabbitState()
 
 void ChaseRabbitState::Update(float dt)
 {
-	CheckState();
 	SetTarget(FWApplication::GetInstance()->GetRabbit()->GetCurrentNode());
+	CheckState();
 }
 
 void ChaseRabbitState::Move(float dt)
 {
 	SearchState::Move(dt);
-	// auto* newNode = owner->GetCurrentNode()->GetEdges().at(NumberUtility::GenerateRandomNumber(0, owner->GetCurrentNode()->GetEdges().size() - 1));
-
-
-
-	// owner->SetCurrentNode(newNode->GetDifferentNodeFromEdge(owner->GetCurrentNode()));
 }
 
 void ChaseRabbitState::CheckState()
@@ -30,6 +25,8 @@ void ChaseRabbitState::CheckState()
 	if (owner->GetCurrentNode() == target)
 	{
 		owner->ChangeState(StateFactory::Create(State::WANDERING, owner));
+		Rabbit* rabbit = FWApplication::GetInstance()->GetRabbit();
+		rabbit->ChangeState(StateFactory::Create(State::RESPAWNING, rabbit));
 	}
 }
 
@@ -40,4 +37,5 @@ std::string ChaseRabbitState::ToString()
 
 ChaseRabbitState::~ChaseRabbitState()
 {
+
 }

@@ -55,11 +55,8 @@ public:
 
 	std::vector<Node*> nodes;
 	std::vector<Edge*> edges;
-	Cow* cow;
-	Rabbit* rabbit;
-	Pill* pill;
-	Weapon* weapon;
 
+	Cow* GetCow() { return cow; };
 	Pill* GetPill() { return pill; };
 	Weapon* GetWeapon() { return weapon; };
 	Rabbit* GetRabbit() { return rabbit; };
@@ -293,6 +290,9 @@ private:
 	std::string mFontName;
 	uint32_t mFontSize;
 	//uint32_t mColor;
-
+	Cow* cow;
+	Rabbit* rabbit;
+	Pill* pill;
+	Weapon* weapon;
 };
 

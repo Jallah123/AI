@@ -41,10 +41,10 @@ int main(int args[])
 				switch (event.key.keysym.sym){
 				case ' ':
 					// c->NextStep(r, nodes, edges);
-					application->cow->Update(1.0);
-					application->rabbit->Update(1.0);
-					application->cow->Move(1.0);
-					application->rabbit->Move(1.0);
+					application->GetCow()->Update(1.0);
+					application->GetRabbit()->Update(1.0);
+					application->GetCow()->Move(1.0);
+					application->GetRabbit()->Move(1.0);
 				default:
 					break;
 				}
@@ -59,8 +59,8 @@ int main(int args[])
 			int ymidpoint = (edge->n1->GetBoundingBox().y + edge->n2->GetBoundingBox().y) / 2;
 			application->DrawLine(edge->n1, edge->n2);
 		}
-		application->DrawText("Cow state: " + application->cow->GetCurrentState()->ToString(), 500, 15);
-		application->DrawText("Rabbit state: " + application->rabbit->GetCurrentState()->ToString(), 500, 30);
+		application->DrawText("Cow state: " + application->GetCow()->GetCurrentState()->ToString(), 500, 15);
+		application->DrawText("Rabbit state: " + application->GetRabbit()->GetCurrentState()->ToString(), 500, 30);
 		application->EndTick();
 	}
 		

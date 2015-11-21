@@ -21,6 +21,24 @@
     <Filter Include="Source Files\Util">
       <UniqueIdentifier>{6a07e467-96b3-43ee-96cb-66513926667a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Model">
+      <UniqueIdentifier>{eab6137d-192e-48d4-aab6-894a0d9816ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Factory">
+      <UniqueIdentifier>{20adf6ff-8c5e-4492-903d-1b046b61014c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\State">
+      <UniqueIdentifier>{e0910211-6368-4be5-aeba-6a2031800aec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{b83e78c3-f1d1-435c-a8b4-5201717ec590}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\State">
+      <UniqueIdentifier>{39ee9237-c3f9-4477-a495-00353ebd05b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Factory">
+      <UniqueIdentifier>{cdcca9e1-5370-488b-9c96-bfd9a8f4d26a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -29,50 +47,56 @@
     <ClCompile Include="FWApplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="NumberUtility.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
-    <ClCompile Include="Edge.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Rabbit.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="ChaseRabbitState.cpp">
+      <Filter>Source Files\State</Filter>
     </ClCompile>
     <ClCompile Include="GameState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\State</Filter>
     </ClCompile>
-    <ClCompile Include="WanderingState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AliveGameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Pill.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StateFactory.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="RespawningState.cpp">
+      <Filter>Source Files\State</Filter>
     </ClCompile>
     <ClCompile Include="SearchPillState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\State</Filter>
     </ClCompile>
     <ClCompile Include="SearchState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ChaseRabbitState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\State</Filter>
     </ClCompile>
     <ClCompile Include="SearchWeaponState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="ShootState.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderingState.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Cow.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Edge.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Pill.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Rabbit.cpp">
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="Weapon.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="AliveGameObject.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="StateFactory.cpp">
+      <Filter>Source Files\Factory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,53 +109,59 @@
     <ClInclude Include="FWApplication.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IGameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="NumberUtility.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Edge.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="AliveGameObject.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="Cow.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="Rabbit.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Edge.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WanderingState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AliveGameObject.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Node.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="Pill.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="StateFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchPillState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ChaseRabbitState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchWeaponState.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Rabbit.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="Weapon.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="StateFactory.h">
+      <Filter>Header Files\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderingState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="ShootState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchWeaponState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchPillState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="RespawningState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="ChaseRabbitState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="IGameObject.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

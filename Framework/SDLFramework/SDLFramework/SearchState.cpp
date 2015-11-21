@@ -28,6 +28,11 @@ void SearchState::Move(float dt)
 	path.erase(std::find(path.begin(), path.end(), owner->GetCurrentNode()));
 }
 
+void SearchState::Update(float dt)
+{
+	CalculatePath(target);
+}
+
 void SearchState::CalculatePath(Node* targetNode)
 {
 	FWApplication::GetInstance()->ResetNodes();

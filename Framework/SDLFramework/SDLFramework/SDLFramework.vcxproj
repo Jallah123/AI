@@ -95,9 +95,11 @@
     <ClCompile Include="NumberUtility.cpp" />
     <ClCompile Include="Pill.cpp" />
     <ClCompile Include="Rabbit.cpp" />
+    <ClCompile Include="RespawningState.cpp" />
     <ClCompile Include="SearchPillState.cpp" />
     <ClCompile Include="SearchState.cpp" />
     <ClCompile Include="SearchWeaponState.cpp" />
+    <ClCompile Include="ShootState.cpp" />
     <ClCompile Include="StateFactory.cpp" />
     <ClCompile Include="WanderingState.cpp" />
     <ClCompile Include="Weapon.cpp" />
@@ -118,9 +120,11 @@
     <ClInclude Include="NumberUtility.h" />
     <ClInclude Include="Pill.h" />
     <ClInclude Include="Rabbit.h" />
+    <ClInclude Include="RespawningState.h" />
     <ClInclude Include="SearchPillState.h" />
     <ClInclude Include="SearchState.h" />
     <ClInclude Include="SearchWeaponState.h" />
+    <ClInclude Include="ShootState.h" />
     <ClInclude Include="StateFactory.h" />
     <ClInclude Include="WanderingState.h" />
     <ClInclude Include="Weapon.h" />

@@ -19,11 +19,6 @@ void SearchPillState::Update(float dt)
 void SearchPillState::Move(float dt)
 {
 	SearchState::Move(dt);
-	// auto* newNode = owner->GetCurrentNode()->GetEdges().at(NumberUtility::GenerateRandomNumber(0, owner->GetCurrentNode()->GetEdges().size() - 1));
-
-	
-
-	// owner->SetCurrentNode(newNode->GetDifferentNodeFromEdge(owner->GetCurrentNode()));
 }
 
 void SearchPillState::CheckState()

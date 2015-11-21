@@ -7,12 +7,12 @@ class SearchState :
 {
 public:
 	SearchState();
-	virtual void Update(float dt) = 0;
+	virtual void Update(float dt);
 	void Move(float dt);
 	virtual void CheckState() = 0;
 	~SearchState();
 protected:
-	void SetTarget(Node* targetNode) { target = targetNode; };
+	void SetTarget(Node* _target) { target = _target; CalculatePath(target); };
 	Node* target;
 private:
 	std::vector<Node*> path;

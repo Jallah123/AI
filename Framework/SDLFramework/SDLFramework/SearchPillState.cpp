@@ -31,6 +31,7 @@ void SearchPillState::CheckState()
 	// If owner->node == pill->node
 	if (owner->GetCurrentNode() == target)
 	{
+		std::cout << "New chase rabbit state" << std::endl;
 		owner->ChangeState(StateFactory::Create(State::CHASE_RABBIT, owner));
 	}
 }

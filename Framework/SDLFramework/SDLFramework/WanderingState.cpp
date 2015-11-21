@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Node.h"
 #include "Edge.h"
+#include "Cow.h"
 
 void WanderingState::Update(float dt)
 {
@@ -20,11 +21,14 @@ void WanderingState::Move(float dt)
 
 void WanderingState::CheckState()
 {
-	int number = NumberUtility::GenerateRandomNumber(0, 10);
-	if (number > 1)
+	if (Cow* c = dynamic_cast<Cow*>(owner))
 	{
-		std::cout << "new pill search state" << std::endl;
-		owner->ChangeState(StateFactory::Create(State::SEARCH_PILL, owner));
+		int number = NumberUtility::GenerateRandomNumber(0, 10);
+		if (number > 1)
+		{
+			std::cout << "new pill search state" << std::endl;
+			owner->ChangeState(StateFactory::Create(State::SEARCH_PILL, owner));
+		}
 	}
 }
 

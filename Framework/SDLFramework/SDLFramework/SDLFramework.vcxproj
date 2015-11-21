@@ -85,6 +85,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AliveGameObject.cpp" />
+    <ClCompile Include="ChaseRabbitState.cpp" />
     <ClCompile Include="Cow.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="FWApplication.cpp" />
@@ -104,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AliveGameObject.h" />
+    <ClInclude Include="ChaseRabbitState.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Cow.h" />
     <ClInclude Include="Edge.h" />

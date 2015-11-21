@@ -11,7 +11,6 @@ SearchState::SearchState()
 
 void SearchState::Move(float dt)
 {
-	std::cout << "Moving searching" << std::endl;
 	if (path.empty())
 	{
 		// r->ChangePosition(nodes);
@@ -23,6 +22,7 @@ void SearchState::Move(float dt)
 		}
 		return;
 	}
+	std::cout << "Moving to target" << std::endl;
 	std::cout << path.at(0)->GetBoundingBox().x << ":" << path.at(0)->GetBoundingBox().y << std::endl;
 	owner->SetCurrentNode(path.at(0));
 	path.erase(std::find(path.begin(), path.end(), owner->GetCurrentNode()));
@@ -30,6 +30,9 @@ void SearchState::Move(float dt)
 
 void SearchState::CalculatePath(Node* targetNode)
 {
+	FWApplication::GetInstance()->ResetNodes();
+	FWApplication::GetInstance()->ResetEdges();
+	std::cout << "Recalculating path" << std::endl;
 	std::vector<Node*> ClosedSet;
 	std::set<Node*> OpenSet;
 	// std::priority_queue<Node*, std::vector<Node*>, Comparetor> NodeQueue;

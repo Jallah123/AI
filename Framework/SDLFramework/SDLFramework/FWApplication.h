@@ -59,6 +59,7 @@ public:
 	Pill* p;
 
 	Pill* GetPill() { return p; };
+	Rabbit* GetRabbit() { return r; };
 	Edge* FWApplication::createEdge(Node* n1, Node* n2);
 	void FWApplication::ResetEdges();
 	void FWApplication::ResetNodes();

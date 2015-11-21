@@ -5,6 +5,9 @@ class ChaseRabbitState :
 {
 public:
 	ChaseRabbitState();
+	void Update(float dt);
+	void Move(float dt);
+	void CheckState();
 	~ChaseRabbitState();
 };
 

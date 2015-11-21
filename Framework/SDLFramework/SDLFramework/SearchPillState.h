@@ -1,7 +1,8 @@
 #pragma once
-#include "GameState.h"
+#include "SearchState.h"
+
 class SearchPillState :
-	public GameState
+	public SearchState
 {
 public:
 	SearchPillState();

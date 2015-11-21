@@ -94,6 +94,8 @@
     <ClCompile Include="NumberUtility.cpp" />
     <ClCompile Include="Pill.cpp" />
     <ClCompile Include="Rabbit.cpp" />
+    <ClCompile Include="SearchPillState.cpp" />
+    <ClCompile Include="SearchState.cpp" />
     <ClCompile Include="StateFactory.cpp" />
     <ClCompile Include="WanderingState.cpp" />
   </ItemGroup>
@@ -112,6 +114,8 @@
     <ClInclude Include="NumberUtility.h" />
     <ClInclude Include="Pill.h" />
     <ClInclude Include="Rabbit.h" />
+    <ClInclude Include="SearchPillState.h" />
+    <ClInclude Include="SearchState.h" />
     <ClInclude Include="StateFactory.h" />
     <ClInclude Include="WanderingState.h" />
   </ItemGroup>

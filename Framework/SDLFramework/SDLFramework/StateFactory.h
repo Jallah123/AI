@@ -14,7 +14,7 @@ enum State
 class StateFactory
 {
 public:
-	static GameState* Create(State state);
+	static GameState* StateFactory::Create(State state, AliveGameObject* owner);
 private:
 	static std::map<State, std::function<GameState*(void)>> StateMap;
 };

@@ -1,5 +1,9 @@
 #include "WanderingState.h"
 #include "NumberUtility.h"
+#include "StateFactory.h"
+#include <iostream>
+#include "Node.h"
+#include "Edge.h"
 
 void WanderingState::Update(float dt)
 {
@@ -16,9 +20,11 @@ void WanderingState::Move(float dt)
 
 void WanderingState::CheckState()
 {
-	if (NumberUtility::GenerateRandomNumber(0, 10) == 5)
+	int number = NumberUtility::GenerateRandomNumber(0, 10);
+	if (number > 1)
 	{
-		// owner->ChangeState(new GetPillState());
+		std::cout << "new pill search state" << std::endl;
+		owner->ChangeState(StateFactory::Create(State::SEARCH_PILL, owner));
 	}
 }
 

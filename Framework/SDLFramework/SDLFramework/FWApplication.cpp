@@ -7,6 +7,11 @@
 #include <SDL_events.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
+#include "Cow.h"
+#include "Rabbit.h"
+#include "Pill.h"
+#include "Edge.h"
+#include "Node.h"
 
 FWApplication * FWApplication::mInstance;
 FWApplication::FWApplication(int offsetX, int offsetY, int width, int height)
@@ -63,6 +68,71 @@ FWApplication::FWApplication(int offsetX, int offsetY, int width, int height)
 
 	mInstance = this;
 	mGameObjects.reserve(32);
+
+	// Fill nodes
+	{
+		nodes.push_back(new Node{ 10, 10 });
+		nodes.push_back(new Node{ 75, 90 });
+		nodes.push_back(new Node{ 50, 150 });
+		nodes.push_back(new Node{ 250, 470 });
+		nodes.push_back(new Node{ 387, 500 });
+		nodes.push_back(new Node{ 500, 570 });
+		nodes.push_back(new Node{ 480, 470 });
+		nodes.push_back(new Node{ 40, 340 });
+		nodes.push_back(new Node{ 250, 10 });
+		nodes.push_back(new Node{ 400, 75 });
+		nodes.push_back(new Node{ 300, 200 });
+		nodes.push_back(new Node{ 400, 300 });
+	}
+
+	// Fill edges
+	{
+		edges.push_back(createEdge(nodes.at(0), nodes.at(1)));
+		edges.push_back(createEdge(nodes.at(1), nodes.at(2)));
+		edges.push_back(createEdge(nodes.at(3), nodes.at(4)));
+		edges.push_back(createEdge(nodes.at(4), nodes.at(5)));
+		edges.push_back(createEdge(nodes.at(5), nodes.at(6)));
+		edges.push_back(createEdge(nodes.at(6), nodes.at(7)));
+		edges.push_back(createEdge(nodes.at(2), nodes.at(7)));
+		edges.push_back(createEdge(nodes.at(8), nodes.at(9)));
+		edges.push_back(createEdge(nodes.at(9), nodes.at(10)));
+		edges.push_back(createEdge(nodes.at(10), nodes.at(11)));
+		edges.push_back(createEdge(nodes.at(6), nodes.at(11)));
+		edges.push_back(createEdge(nodes.at(1), nodes.at(8)));
+		edges.push_back(createEdge(nodes.at(2), nodes.at(11)));
+		edges.push_back(createEdge(nodes.at(1), nodes.at(10)));
+		edges.push_back(createEdge(nodes.at(3), nodes.at(7)));
+		edges.push_back(createEdge(nodes.at(11), nodes.at(7)));
+	}
+
+	r = new Rabbit{nodes.at(7)};
+	c = new Cow{ nodes.at(1) };
+	p = new Pill{ nodes.at(0) };
+}
+
+void FWApplication::ResetEdges()
+{
+	for each (auto& edge in edges)
+	{
+		edge->Weight = 0;
+	}
+}
+
+void FWApplication::ResetNodes()
+{
+	for each (auto& Node in nodes)
+	{
+		Node->weight = 100000;
+		Node->prevNode = nullptr;
+	}
+}
+
+Edge* FWApplication::createEdge(Node* n1, Node* n2)
+{
+	Edge* e = new Edge(n1, n2);
+	n1->AddEdge(e);
+	n2->AddEdge(e);
+	return e;
 }
 
 

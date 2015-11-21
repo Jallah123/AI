@@ -8,10 +8,10 @@ class AliveGameObject :
 	public IGameObject
 {
 public:
-	AliveGameObject();
+	AliveGameObject(Node* n);
 	void Update(float dt);
 	void Move(float dt);
-	void ChangeState(GameState* newState) { currentState = nullptr; currentState = newState; };
+	void ChangeState(GameState* newState);
 	Node* GetCurrentNode() { return currentNode; };
 	void SetCurrentNode(Node* newNode);
 	virtual ~AliveGameObject() {};

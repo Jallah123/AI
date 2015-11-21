@@ -1,8 +1,8 @@
 #pragma once
 #include "IGameObject.h"
 #include <vector>
-#include "Edge.h"
 
+class Edge;
 class Node :
 	public IGameObject
 {

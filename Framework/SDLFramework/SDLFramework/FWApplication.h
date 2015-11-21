@@ -4,7 +4,12 @@
 #include <cstdint>
 #include <vector>
 
+class Rabbit;
+class Cow;
+class Pill;
 class IGameObject;
+class Edge;
+class Node;
 struct SDL_Renderer;
 struct SDL_Window;
 struct SDL_Texture;
@@ -46,6 +51,17 @@ class FWApplication
 public:
 	FWApplication(int offsetX = 50, int offsetY = 50, int width = 800, int height = 600);
 	~FWApplication();
+
+	std::vector<Node*> nodes;
+	std::vector<Edge*> edges;
+	Cow* c;
+	Rabbit* r;
+	Pill* p;
+
+	Pill* GetPill() { return p; };
+	Edge* FWApplication::createEdge(Node* n1, Node* n2);
+	void FWApplication::ResetEdges();
+	void FWApplication::ResetNodes();
 
 	void SetTargetFPS(unsigned short target);
 

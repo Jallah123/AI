@@ -3,12 +3,19 @@
 #include "StateFactory.h"
 #include "GameState.h"
 
-AliveGameObject::AliveGameObject()
+AliveGameObject::AliveGameObject(Node* n)
 {
-	currentState = StateFactory::Create(State::WANDERING);
-	currentState->SetOwner(this);
+	currentNode = n;
+	currentState = StateFactory::Create(State::WANDERING, this);
 	mWidth = 30;
 	mHeight = 30;
+}
+
+void AliveGameObject::ChangeState(GameState* newState)
+{
+	currentState = nullptr;
+	currentState = newState;
+	currentState->SetOwner(this);
 }
 
 void AliveGameObject::Move(float dt)

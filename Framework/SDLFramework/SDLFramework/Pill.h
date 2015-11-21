@@ -8,6 +8,7 @@ class Pill :
 public:
 	Pill(Node* n);
 	void Update(float dt) {};
+	Node* GetNode() { return currentNode; };
 	~Pill();
 private:
 	Node* currentNode{ nullptr };

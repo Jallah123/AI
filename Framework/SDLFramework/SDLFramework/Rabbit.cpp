@@ -1,7 +1,7 @@
 #include "Rabbit.h"
 #include "NumberUtility.h"
 
-Rabbit::Rabbit()
+Rabbit::Rabbit(Node* currentNode) : AliveGameObject(currentNode)
 {
 	mTexture = mApplication->LoadTexture("rabbit-3.png");
 	mApplication->AddRenderable(this);
@@ -16,7 +16,6 @@ void Rabbit::ChangePosition(std::vector<Node*> nodes)
 		newNode = nodes.at(NumberUtility::GenerateRandomNumber(0, nodes.size() - 1));
 	}
 	SetCurrentNode(newNode);
-
 }
 
 Rabbit::~Rabbit()

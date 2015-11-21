@@ -6,6 +6,7 @@ class WanderingState :
 {
 public:
 	WanderingState() {};
+	WanderingState(int t) {};
 	void Update(float dt);
 	void Move(float dt);
 	void CheckState();

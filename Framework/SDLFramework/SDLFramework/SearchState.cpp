@@ -1,63 +1,40 @@
-#include "Cow.h"
-#include <vector>
-#include <iostream>
-#include <queue>
-#include <set>
-#include "Edge.h"
+#include "SearchState.h"
 #include "Node.h"
-#include "Rabbit.h"
+#include "Edge.h"
+#include <set>
+#include <iostream>
+#include "FWApplication.h"
 
-Cow::Cow(Node* currentNode) : AliveGameObject(currentNode)
+SearchState::SearchState()
 {
-	mTexture = mApplication->LoadTexture("cow-1.png");
-	mApplication->AddRenderable(this);
 }
 
-void Cow::NextStep(Rabbit* r, std::vector<Node*> nodes, std::vector<Edge*> edges)
+void SearchState::Move(float dt)
 {
+	std::cout << "Moving searching" << std::endl;
 	if (path.empty())
 	{
-		r->ChangePosition(nodes);
-		ResetNodes(nodes);
-		ResetEdges(edges);
-		CalculatePath(r->GetCurrentNode());
+		// r->ChangePosition(nodes);
+		FWApplication::GetInstance()->ResetNodes();
+		FWApplication::GetInstance()->ResetEdges();
+		if (target != nullptr)
+		{
+			CalculatePath(target);
+		}
 		return;
 	}
-	currentNode = path.at(0);
-	path.erase(std::find(path.begin(), path.end(), currentNode));
-	mX = currentNode->GetBoundingBox().x;
-	mY = currentNode->GetBoundingBox().y;
+	std::cout << path.at(0)->GetBoundingBox().x << ":" << path.at(0)->GetBoundingBox().y << std::endl;
+	owner->SetCurrentNode(path.at(0));
+	path.erase(std::find(path.begin(), path.end(), owner->GetCurrentNode()));
 }
 
-void Cow::ResetEdges(std::vector<Edge*> edges) 
-{
-	for each (auto& edge in edges)
-	{
-		edge->Weight = 0;
-	}
-}
-
-void Cow::ResetNodes(std::vector<Node*>& nodes)
-{
-	for each (auto& Node in nodes)
-	{
-		Node->weight = 100000;
-		Node->prevNode = nullptr;
-	}
-}
-
-struct Comparetor {
-	bool operator()(const Node* node1, const Node* node2) {
-		return node1->weight < node2->weight;
-	}
-};
-
-void Cow::CalculatePath(Node* targetNode)
+void SearchState::CalculatePath(Node* targetNode)
 {
 	std::vector<Node*> ClosedSet;
 	std::set<Node*> OpenSet;
 	// std::priority_queue<Node*, std::vector<Node*>, Comparetor> NodeQueue;
 	std::vector<Node*> NodeQueue;
+	Node* currentNode = owner->GetCurrentNode();
 	currentNode->weight = 0;
 	NodeQueue.push_back(currentNode);
 	OpenSet.insert(currentNode);
@@ -71,13 +48,13 @@ void Cow::CalculatePath(Node* targetNode)
 		if (cNode == targetNode)
 		{
 			std::vector<Node*> correctPath;
-			while (cNode != this->currentNode)
+			while (cNode != currentNode)
 			{
 				correctPath.push_back(cNode);
 				cNode = cNode->prevNode;
 			}
 			std::reverse(correctPath.begin(), correctPath.end());
-			path =  correctPath;
+			path = correctPath;
 			return;
 		}
 		ClosedSet.push_back(cNode);
@@ -110,7 +87,7 @@ void Cow::CalculatePath(Node* targetNode)
 	}
 }
 
-Node* Cow::GetCheapestNode(std::vector<Node*>& nodes)
+Node* SearchState::GetCheapestNode(std::vector<Node*>& nodes)
 {
 	Node* cheapest = nodes.at(0);
 	for each (auto& Node in nodes)
@@ -123,7 +100,6 @@ Node* Cow::GetCheapestNode(std::vector<Node*>& nodes)
 	return cheapest;
 }
 
-
-Cow::~Cow()
+SearchState::~SearchState()
 {
 }

@@ -8,6 +8,7 @@ public:
 	SearchPillState();
 	void Update(float dt);
 	void Move(float dt);
+	std::string ToString();
 	void CheckState();
 	~SearchPillState();
 };

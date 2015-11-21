@@ -3,6 +3,7 @@
 #include "SearchPillState.h"
 #include "AliveGameObject.h"
 #include "ChaseRabbitState.h"
+#include "SearchWeaponState.h"
 
 std::map<State, std::function<GameState*(void)>> fillMap()
 {
@@ -10,6 +11,7 @@ std::map<State, std::function<GameState*(void)>> fillMap()
 	map[State::WANDERING] = [](void) -> GameState * { return new WanderingState; };
 	map[State::SEARCH_PILL] = [](void) -> GameState * { return new SearchPillState; };
 	map[State::CHASE_RABBIT] = [](void) -> GameState * { return new ChaseRabbitState; };
+	map[State::SEARCH_WEAPON] = [](void) -> GameState * { return new SearchWeaponState; };
 	return map;
 }
 

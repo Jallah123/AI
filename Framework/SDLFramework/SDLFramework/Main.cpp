@@ -10,6 +10,7 @@
 #include "Node.h"
 #include "Cow.h"
 #include "Rabbit.h"
+#include "StateFactory.h"
 
 int main(int args[])
 {
@@ -21,7 +22,7 @@ int main(int args[])
 		return EXIT_FAILURE;
 	}
 
-
+	Color* black = new Color(0, 0, 0, 1);
 	application->SetTargetFPS(60);
 
 	while (application->IsRunning())
@@ -40,10 +41,10 @@ int main(int args[])
 				switch (event.key.keysym.sym){
 				case ' ':
 					// c->NextStep(r, nodes, edges);
-					application->c->Update(1.0);
-					application->r->Update(1.0);
-					application->c->Move(1.0);
-					application->r->Move(1.0);
+					application->cow->Update(1.0);
+					application->rabbit->Update(1.0);
+					application->cow->Move(1.0);
+					application->rabbit->Move(1.0);
 				default:
 					break;
 				}
@@ -58,6 +59,8 @@ int main(int args[])
 			int ymidpoint = (edge->n1->GetBoundingBox().y + edge->n2->GetBoundingBox().y) / 2;
 			application->DrawLine(edge->n1, edge->n2);
 		}
+		application->DrawText("Cow state: " + application->cow->GetCurrentState()->ToString(), 500, 15);
+		application->DrawText("Rabbit state: " + application->rabbit->GetCurrentState()->ToString(), 500, 30);
 		application->EndTick();
 	}
 		

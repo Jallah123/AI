@@ -36,6 +36,11 @@ void SearchPillState::CheckState()
 	}
 }
 
+std::string SearchPillState::ToString()
+{
+	return "Searching pill";
+}
+
 SearchPillState::~SearchPillState()
 {
 }

@@ -17,4 +17,3 @@ public:
 	std::vector<Node*> path;
 	~Cow();
 };
-

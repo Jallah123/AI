@@ -27,10 +27,15 @@ void ChaseRabbitState::Move(float dt)
 void ChaseRabbitState::CheckState()
 {
 	// If owner->node == pill->node
-	//if (owner->GetCurrentNode() == target)
-	//{
-		//owner->ChangeState(StateFactory::Create(State::WANDERING, owner));
-	//}
+	if (owner->GetCurrentNode() == target)
+	{
+		owner->ChangeState(StateFactory::Create(State::WANDERING, owner));
+	}
+}
+
+std::string ChaseRabbitState::ToString() 
+{
+	return "Chasing rabbit";
 }
 
 ChaseRabbitState::~ChaseRabbitState()

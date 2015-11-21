@@ -9,6 +9,7 @@ public:
 	WanderingState(int t) {};
 	void Update(float dt);
 	void Move(float dt);
+	std::string ToString();
 	void CheckState();
 	~WanderingState();
 };

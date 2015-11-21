@@ -10,6 +10,7 @@ class Pill;
 class IGameObject;
 class Edge;
 class Node;
+class Weapon;
 struct SDL_Renderer;
 struct SDL_Window;
 struct SDL_Texture;
@@ -54,12 +55,14 @@ public:
 
 	std::vector<Node*> nodes;
 	std::vector<Edge*> edges;
-	Cow* c;
-	Rabbit* r;
-	Pill* p;
+	Cow* cow;
+	Rabbit* rabbit;
+	Pill* pill;
+	Weapon* weapon;
 
-	Pill* GetPill() { return p; };
-	Rabbit* GetRabbit() { return r; };
+	Pill* GetPill() { return pill; };
+	Weapon* GetWeapon() { return weapon; };
+	Rabbit* GetRabbit() { return rabbit; };
 	Edge* FWApplication::createEdge(Node* n1, Node* n2);
 	void FWApplication::ResetEdges();
 	void FWApplication::ResetNodes();

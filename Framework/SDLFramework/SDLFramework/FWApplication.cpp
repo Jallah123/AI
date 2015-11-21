@@ -10,6 +10,7 @@
 #include "Cow.h"
 #include "Rabbit.h"
 #include "Pill.h"
+#include "Weapon.h"
 #include "Edge.h"
 #include "Node.h"
 
@@ -105,9 +106,10 @@ FWApplication::FWApplication(int offsetX, int offsetY, int width, int height)
 		edges.push_back(createEdge(nodes.at(11), nodes.at(7)));
 	}
 
-	r = new Rabbit{ nodes.at(7) };
-	c = new Cow{ nodes.at(1) };
-	p = new Pill{ nodes.at(0) };
+	rabbit = new Rabbit{ nodes.at(7) };
+	cow = new Cow{ nodes.at(1) };
+	pill = new Pill{ nodes.at(0) };
+	weapon = new Weapon{ nodes.at(10) };
 }
 
 void FWApplication::ResetEdges()

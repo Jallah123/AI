@@ -5,6 +5,7 @@
 #include "Node.h"
 #include "Edge.h"
 #include "Cow.h"
+#include "Rabbit.h"
 
 void WanderingState::Update(float dt)
 {
@@ -30,6 +31,20 @@ void WanderingState::CheckState()
 			owner->ChangeState(StateFactory::Create(State::SEARCH_PILL, owner));
 		}
 	}
+	if (Rabbit* c = dynamic_cast<Rabbit*>(owner))
+	{
+		int number = NumberUtility::GenerateRandomNumber(0, 10);
+		if (number > 1)
+		{
+			std::cout << "new weapon searching state" << std::endl;
+			owner->ChangeState(StateFactory::Create(State::SEARCH_WEAPON, owner));
+		}
+	}
+}
+
+std::string WanderingState::ToString()
+{
+	return "Wandering";
 }
 
 WanderingState::~WanderingState()

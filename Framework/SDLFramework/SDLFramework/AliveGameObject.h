@@ -15,6 +15,7 @@ public:
 	Node* GetCurrentNode() { return currentNode; };
 	void SetCurrentNode(Node* newNode);
 	virtual ~AliveGameObject() {};
+	GameState* GetCurrentState() { return currentState; };
 protected:
 	Node* currentNode{ nullptr };
 	GameState* currentState{ nullptr };

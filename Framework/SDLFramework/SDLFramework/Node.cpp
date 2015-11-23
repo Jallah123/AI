@@ -18,8 +18,8 @@ Node::Node(int x, int y)
 void Node::Draw()
 {
 	IGameObject::Draw();
-	mApplication->DrawText(std::to_string(id), mX + 10, mY + 0);
-	mApplication->DrawText(std::to_string(weight), mX + 5, mY + 5);
+//	mApplication->DrawText(std::to_string(id), mX + 10, mY + 0);
+//	mApplication->DrawText(std::to_string(weight), mX + 5, mY + 5);
 }
 
 

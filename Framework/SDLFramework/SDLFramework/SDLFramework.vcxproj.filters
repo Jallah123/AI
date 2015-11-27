@@ -98,6 +98,12 @@
     <ClCompile Include="StateFactory.cpp">
       <Filter>Source Files\Factory</Filter>
     </ClCompile>
+    <ClCompile Include="FleeState.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="SleepState.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />
@@ -162,6 +168,12 @@
     </ClInclude>
     <ClInclude Include="IGameObject.h">
       <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="FleeState.h">
+      <Filter>Header Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="SleepState.h">
+      <Filter>Header Files\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -12,7 +12,7 @@ public:
 	virtual void CheckState() = 0;
 	~SearchState();
 protected:
-	void SetTarget(Node* _target) { target = _target; CalculatePath(target); };
+	void SetTarget(Node* _target) { target = _target; /*CalculatePath(target);*/ };
 	Node* target;
 private:
 	std::vector<Node*> path;

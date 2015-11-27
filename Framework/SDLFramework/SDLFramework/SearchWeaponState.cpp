@@ -5,6 +5,7 @@
 
 SearchWeaponState::SearchWeaponState()
 {
+	SetTarget(FWApplication::GetInstance()->GetWeapon()->GetNode());
 }
 
 void SearchWeaponState::Update(float dt)
@@ -27,6 +28,7 @@ void SearchWeaponState::CheckState()
 	{
 		std::cout << "new wandering state" << std::endl;
 		owner->ChangeState(StateFactory::Create(State::SHOOT_COW, owner));
+		FWApplication::GetInstance()->GetWeapon()->Respawn();
 	}
 }
 

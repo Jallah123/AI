@@ -18,7 +18,7 @@ void SearchState::Move(float dt)
 		FWApplication::GetInstance()->ResetEdges();
 		if (target != nullptr)
 		{
-			CalculatePath(target);
+ 			CalculatePath(target);
 		}
 		return;
 	}

@@ -5,11 +5,9 @@
 #include "Node.h"
 #include "Edge.h"
 #include "Cow.h"
-#include "Rabbit.h"
 
 void WanderingState::Update(float dt)
 {
-	// chance to change state to search_pill
 	CheckState();
 }
 
@@ -22,24 +20,35 @@ void WanderingState::Move(float dt)
 
 void WanderingState::CheckState()
 {
-	if (Cow* c = dynamic_cast<Cow*>(owner))
+	if (Rabbit* r = dynamic_cast<Rabbit*>(owner))
 	{
-		int number = NumberUtility::GenerateRandomNumber(0, 10);
-		if (number == 1)
+		for (auto& edge : r->GetCurrentNode()->GetEdges())
 		{
-			std::cout << "new pill search state" << std::endl;
-			owner->ChangeState(StateFactory::Create(State::SEARCH_PILL, owner));
+			if (edge->GetDifferentNodeFromEdge(r->GetCurrentNode()) == FWApplication::GetInstance()->GetCow()->GetCurrentNode())
+			{
+				ChangeState(r);
+			}
 		}
 	}
-	if (Rabbit* c = dynamic_cast<Rabbit*>(owner))
+}
+
+void WanderingState::ChangeState(Rabbit* r)
+{
+	int number = NumberUtility::GenerateRandomNumber(0, 10);
+	GameState* newState;
+	if (number < 1)
 	{
-		int number = NumberUtility::GenerateRandomNumber(0, 10);
-		if (number == 1)
-		{
-			std::cout << "new weapon searching state" << std::endl;
-			owner->ChangeState(StateFactory::Create(State::SEARCH_WEAPON, owner));
-		}
+		newState = StateFactory::Create(State::FLEE, r);
 	}
+	else if (number < 6) 
+	{
+		newState = StateFactory::Create(State::SEARCH_PILL, r);
+	}
+	else 
+	{
+		newState = StateFactory::Create(State::SEARCH_WEAPON, r);
+	}
+	r->ChangeState(newState);
 }
 
 std::string WanderingState::ToString()
@@ -49,4 +58,5 @@ std::string WanderingState::ToString()
 
 WanderingState::~WanderingState()
 {
+
 }

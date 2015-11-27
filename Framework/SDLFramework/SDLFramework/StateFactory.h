@@ -10,7 +10,9 @@ enum State
 	SEARCH_WEAPON,
 	CHASE_RABBIT,
 	SHOOT_COW,
-	RESPAWNING
+	RESPAWNING,
+	FLEE,
+	SLEEP
 };
 
 class StateFactory

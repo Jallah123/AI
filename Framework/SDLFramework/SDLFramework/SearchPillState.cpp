@@ -2,9 +2,11 @@
 #include "Pill.h"
 #include <iostream>
 #include "StateFactory.h"
+#include "Rabbit.h"
 
 SearchPillState::SearchPillState()
 {
+	SetTarget(FWApplication::GetInstance()->GetPill()->GetNode());
 }
 
 void SearchPillState::Update(float dt)
@@ -23,11 +25,15 @@ void SearchPillState::Move(float dt)
 
 void SearchPillState::CheckState()
 {
-	// If owner->node == pill->node
 	if (owner->GetCurrentNode() == target)
 	{
-		std::cout << "New chase rabbit state" << std::endl;
-		owner->ChangeState(StateFactory::Create(State::CHASE_RABBIT, owner));
+		std::cout << "Pill found now wandering" << std::endl;
+		if (Rabbit* r = dynamic_cast<Rabbit*>(owner)) 
+		{
+			r->ChangeState(StateFactory::Create(State::WANDERING, owner));
+			r->HasPill = true;
+			FWApplication::GetInstance()->GetPill()->Respawn();
+		}
 	}
 }
 

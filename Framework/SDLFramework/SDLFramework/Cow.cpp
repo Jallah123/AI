@@ -1,14 +1,9 @@
 #include "Cow.h"
-#include <vector>
-#include <iostream>
-#include <queue>
-#include <set>
-#include "Edge.h"
-#include "Node.h"
-#include "Rabbit.h"
+#include "StateFactory.h"
 
 Cow::Cow(Node* currentNode) : AliveGameObject(currentNode)
 {
+	currentState = StateFactory::Create(State::CHASE_RABBIT, this);
 	mTexture = mApplication->LoadTexture("cow-1.png");
 	mApplication->AddRenderable(this);
 }

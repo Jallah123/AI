@@ -1,18 +1,14 @@
 #pragma once
 #include "GameState.h"
-#include "Rabbit.h"
-
-class WanderingState :
+class FleeState :
 	public GameState
 {
 public:
-	WanderingState() {};
-	WanderingState(int t) {};
+	FleeState();
+	~FleeState();
 	void Update(float dt);
 	void Move(float dt);
 	std::string ToString();
 	void CheckState();
-	void ChangeState(Rabbit* r);
-	~WanderingState();
 };
 

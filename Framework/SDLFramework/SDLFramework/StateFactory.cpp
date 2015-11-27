@@ -6,6 +6,8 @@
 #include "SearchWeaponState.h"
 #include "ShootState.h"
 #include "RespawningState.h"
+#include "FleeState.h"
+#include "SleepState.h"
 
 std::map<State, std::function<GameState*(void)>> fillMap()
 {
@@ -16,6 +18,8 @@ std::map<State, std::function<GameState*(void)>> fillMap()
 	map[State::SEARCH_WEAPON] = [](void) -> GameState * { return new SearchWeaponState; };
 	map[State::SHOOT_COW] = [](void) -> GameState * { return new ShootState; };
 	map[State::RESPAWNING] = [](void) -> GameState * { return new RespawningState; };
+	map[State::FLEE] = [](void) -> GameState * { return new FleeState; };
+	map[State::SLEEP] = [](void) -> GameState * { return new SleepState; };
 	return map;
 }
 

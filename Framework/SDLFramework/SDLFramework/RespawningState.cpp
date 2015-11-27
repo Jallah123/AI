@@ -1,6 +1,7 @@
 #include "RespawningState.h"
 #include "NumberUtility.h"
 #include "StateFactory.h"
+#include "Cow.h"
 
 void RespawningState::Update(float dt)
 {
@@ -14,7 +15,14 @@ void RespawningState::Move(float dt)
 
 void RespawningState::CheckState()
 {
-	owner->ChangeState(StateFactory::Create(State::WANDERING, owner));
+	if (Cow* c = dynamic_cast<Cow*>(owner)) 
+	{
+		owner->ChangeState(StateFactory::Create(State::CHASE_RABBIT, owner));
+	}
+	else 
+	{
+		owner->ChangeState(StateFactory::Create(State::WANDERING, owner));
+	}
 }
 
 std::string RespawningState::ToString()

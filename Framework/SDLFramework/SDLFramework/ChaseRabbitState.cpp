@@ -2,6 +2,7 @@
 #include "FWApplication.h"
 #include <iostream>
 #include "Rabbit.h"
+#include "Cow.h"
 #include "StateFactory.h"
 
 ChaseRabbitState::ChaseRabbitState()
@@ -21,16 +22,22 @@ void ChaseRabbitState::Move(float dt)
 
 void ChaseRabbitState::CheckState()
 {
-	// If owner->node == pill->node
 	if (owner->GetCurrentNode() == target)
 	{
-		owner->ChangeState(StateFactory::Create(State::WANDERING, owner));
 		Rabbit* rabbit = FWApplication::GetInstance()->GetRabbit();
-		rabbit->ChangeState(StateFactory::Create(State::RESPAWNING, rabbit));
+		if (rabbit->HasPill)
+		{
+			owner->ChangeState(StateFactory::Create(State::SLEEP, owner));
+			rabbit->HasPill = false;
+		}
+		else 
+		{
+			rabbit->ChangeState(StateFactory::Create(State::RESPAWNING, rabbit));
+		}
 	}
 }
 
-std::string ChaseRabbitState::ToString() 
+std::string ChaseRabbitState::ToString()
 {
 	return "Chasing rabbit";
 }

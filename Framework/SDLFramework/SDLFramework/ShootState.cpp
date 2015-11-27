@@ -20,10 +20,15 @@ void ShootState::Move(float dt)
 void ShootState::CheckState()
 {
 	Cow* cow = FWApplication::GetInstance()->GetCow();
-	if (cow->GetCurrentNode() == owner->GetCurrentNode()) 
+	Rabbit* rabbit = dynamic_cast<Rabbit*>(owner);
+	for (auto& edge : rabbit->GetCurrentNode()->GetEdges())
 	{
-		cow->ChangeState(StateFactory::Create(State::RESPAWNING, cow));
-		owner->ChangeState(StateFactory::Create(State::WANDERING, owner));
+		Node* node = edge->GetDifferentNodeFromEdge(rabbit->GetCurrentNode());
+		if (node == FWApplication::GetInstance()->GetCow()->GetCurrentNode())
+		{
+			cow->ChangeState(StateFactory::Create(State::RESPAWNING, cow));
+			owner->ChangeState(StateFactory::Create(State::WANDERING, owner));
+		}
 	}
 }
 

@@ -11,6 +11,7 @@
 #include "Cow.h"
 #include "Rabbit.h"
 #include "StateFactory.h"
+#include "Pill.h"
 
 int main(int args[])
 {
@@ -40,7 +41,6 @@ int main(int args[])
 			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym){
 				case ' ':
-					// c->NextStep(r, nodes, edges);
 					application->GetCow()->Update(1.0);
 					application->GetRabbit()->Update(1.0);
 					application->GetCow()->Move(1.0);
@@ -59,8 +59,12 @@ int main(int args[])
 			int ymidpoint = (edge->n1->GetBoundingBox().y + edge->n2->GetBoundingBox().y) / 2;
 			application->DrawLine(edge->n1, edge->n2);
 		}
+		bool pill = application->GetRabbit()->HasPill;
+		std::string pillString = "Rabbit pill: ";
+		pill ? pillString += "true" : pillString += "false";
 		application->DrawText("Cow state: " + application->GetCow()->GetCurrentState()->ToString(), 500, 15);
 		application->DrawText("Rabbit state: " + application->GetRabbit()->GetCurrentState()->ToString(), 500, 30);
+		application->DrawText(pillString, 500, 45);
 		application->EndTick();
 	}
 		

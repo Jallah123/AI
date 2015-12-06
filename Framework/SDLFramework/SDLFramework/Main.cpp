@@ -4,6 +4,7 @@
 #include <SDL_events.h>
 #include "SDL_timer.h"
 #include <time.h>
+#include "Cow.h"
 
 int main(int args[])
 {
@@ -18,6 +19,8 @@ int main(int args[])
 	application->SetTargetFPS(60);
 	application->SetColor(Color(255, 10, 40, 255));
 	
+
+	Cow c{};
 
 	//while (true){}
 	while (application->IsRunning())

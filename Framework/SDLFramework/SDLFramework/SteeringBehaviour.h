@@ -48,6 +48,11 @@ struct Vector2
 		return Vector2{ x - other.x, y - other.y };
 	}
 
+	Vector2& operator+(const Vector2& other)
+	{
+		return Vector2{ x + other.x, y + other.y };
+	}
+
 	Vector2& operator*(const Vector2& other)
 	{
 		return Vector2{ x * other.x, y * other.y };
@@ -76,6 +81,7 @@ class SteeringBehaviour
 {
 public:
 	SteeringBehaviour() { };
+	Vector2 PointToWorldSpace(Vector2 localTarget, Vector2 heading, Vector2 side, Vector2 position);
 	void SetOwner(ForceDrivenEntity* newowner) { owner = newowner; };
 	virtual Vector2 Calculate() { return Seek(Vector2{ 300, 400 }); };
 	Vector2 Seek(Vector2 Target);

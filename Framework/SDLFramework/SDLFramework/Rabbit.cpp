@@ -1,18 +1,18 @@
-#include "Cow.h"
+#include "Rabbit.h"
 #include "WanderBehaviour.h"
 
-Cow::Cow()
+Rabbit::Rabbit()
 {
-	mTexture = mApplication->LoadTexture("cow-1.png");
-	mX = 100;
-	mY = 100;
+	mTexture = mApplication->LoadTexture("rabbit-3.png");
+	mX = 200;
+	mY = 200;
 	mWidth = 40;
 	mHeight = 40;
 	mApplication->AddRenderable(this);
-	m_Steering = new WanderBehaviour{this};
+	m_Steering = new WanderBehaviour{ this };
 }
 
-void Cow::Update(float dt)
+void Rabbit::Update(float dt)
 {
 	ForceDrivenEntity::Update(dt);
 	m_Velocity = MovingEntity::Update(dt);
@@ -21,6 +21,6 @@ void Cow::Update(float dt)
 	mY += m_Velocity.y * dt;
 }
 
-Cow::~Cow()
+Rabbit::~Rabbit()
 {
 }

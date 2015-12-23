@@ -7,6 +7,8 @@
 #include <SDL_events.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
+#include "Cow.h"
+#include "Rabbit.h"
 
 FWApplication * FWApplication::mInstance;
 FWApplication::FWApplication(int offsetX, int offsetY, int width, int height)
@@ -63,6 +65,8 @@ FWApplication::FWApplication(int offsetX, int offsetY, int width, int height)
 
 	mInstance = this;
 	mGameObjects.reserve(32);
+	cow = new Cow;
+	rabbit = new Rabbit;
 }
 
 

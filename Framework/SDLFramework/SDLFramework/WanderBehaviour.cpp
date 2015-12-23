@@ -1,23 +1,29 @@
 #include "WanderBehaviour.h"
 #include "NumberUtility.h"
+#include "ForceDrivenEntity.h"
 
-WanderBehaviour::WanderBehaviour()
+WanderBehaviour::WanderBehaviour(ForceDrivenEntity* _owner) : SteeringBehaviour(_owner)
 {
+	wanderRadius = 1;
+	wanderDistance = 7;
+	wanderJitter = 5;
+	wanderTarget = GetOwner()->GetPosition();
 }
 
 Vector2 WanderBehaviour::Calculate()
 {
-	Vector2 wanderTarget{ wanderJitter * NumberUtility::RandomNumber(0.0f, 1.0f), wanderJitter * NumberUtility::RandomNumber(0.0f, 1.0f) };
+	wanderTarget += Vector2{ wanderJitter * NumberUtility::RandomNumber(-1.0f, 1.0f), wanderJitter * NumberUtility::RandomNumber(-1.0f, 1.0f) };
 	wanderTarget.Normalize();
 
 	wanderTarget *= wanderRadius;
 
-	Vector2 targetLocal = wanderTarget * Vector2{ wanderdistance, 0 };
-	Vector2 targetWorld = PointToWorldSpace(targetLocal, heading, side, position);
+	Vector2 targetLocal = wanderTarget * Vector2{ wanderDistance, 0 };
+	Vector2 targetWorld = PointToWorldSpace(targetLocal, GetOwner()->GetHeading(), GetOwner()->GetSide(), GetOwner()->GetPosition());
 
-	return targetWorld - position;
+	return targetWorld - GetOwner()->GetPosition();
 }
 
 WanderBehaviour::~WanderBehaviour()
 {
+
 }

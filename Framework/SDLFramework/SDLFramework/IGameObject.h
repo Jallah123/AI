@@ -2,7 +2,6 @@
 #include "FWApplication.h"
 #include <SDL_rect.h>
 
-
 class IGameObject
 {
 public:
@@ -206,6 +205,9 @@ public:
 
 	float getX() { return mX; };
 	float getY() { return mY; };
+
+	void setX(float val) { mX = val; };
+	void setY(float val) { mY = val; };
 protected:
 	FWApplication * mApplication;
 	SDL_Texture * mTexture;

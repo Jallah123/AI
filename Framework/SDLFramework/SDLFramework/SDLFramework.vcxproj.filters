@@ -9,8 +9,23 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Week1">
-      <UniqueIdentifier>{6469432c-2a1e-411f-a745-f6b8fe556dad}</UniqueIdentifier>
+    <Filter Include="Source Files\Behaviour">
+      <UniqueIdentifier>{e599e046-701c-405f-be19-9cda3c962582}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model">
+      <UniqueIdentifier>{f00d429a-1456-4d45-af85-e641a54e0ace}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Util">
+      <UniqueIdentifier>{97866e22-8e80-4ff2-9163-6c496268289f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Behaviour">
+      <UniqueIdentifier>{235b2da2-de83-4915-b89c-3749e05400ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{dca08aa5-7df2-4677-b2ff-33f109923a59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Util">
+      <UniqueIdentifier>{79586b7d-5d6b-4df3-b634-d9e65e1916d9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -20,23 +35,32 @@
     <ClCompile Include="FWApplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cow.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="FleeBehaviour.cpp">
+      <Filter>Source Files\Behaviour</Filter>
     </ClCompile>
-    <ClCompile Include="MovingEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ForceDrivenEntity.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="PersuitBehaviour.cpp">
+      <Filter>Source Files\Behaviour</Filter>
     </ClCompile>
     <ClCompile Include="SteeringBehaviour.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Behaviour</Filter>
     </ClCompile>
     <ClCompile Include="WanderBehaviour.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Behaviour</Filter>
+    </ClCompile>
+    <ClCompile Include="Cow.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="ForceDrivenEntity.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MovingEntity.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Rabbit.cpp">
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="NumberUtility.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -49,29 +73,41 @@
     <ClInclude Include="FWApplication.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IGameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MovingEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ForceDrivenEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SteeringBehaviour.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="FleeBehaviour.h">
+      <Filter>Header Files\Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="PersuitBehaviour.h">
+      <Filter>Header Files\Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="SteeringBehaviour.h">
+      <Filter>Header Files\Behaviour</Filter>
+    </ClInclude>
     <ClInclude Include="WanderBehaviour.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Behaviour</Filter>
+    </ClInclude>
+    <ClInclude Include="Cow.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="ForceDrivenEntity.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="IGameObject.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="MovingEntity.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Rabbit.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="NumberUtility.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

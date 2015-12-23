@@ -4,6 +4,8 @@
 #include <cstdint>
 #include <vector>
 
+class Cow;
+class Rabbit;
 class IGameObject;
 struct SDL_Renderer;
 struct SDL_Window;
@@ -242,7 +244,8 @@ public:
 	void RenderGameObjects();
 	void Quit();
 	//void AddOnEvent(std::function<void(SDL_Event*)> func);
-
+	Cow* cow;
+	Rabbit* rabbit;
 private:
 	std::vector<IGameObject *> mGameObjects;
 	static FWApplication * mInstance;

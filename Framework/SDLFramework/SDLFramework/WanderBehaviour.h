@@ -5,11 +5,12 @@ class WanderBehaviour :
 {
 private:
 	float wanderRadius;
-	float wanderdistance;
+	float wanderDistance;
 	float wanderJitter;
 public:
-	WanderBehaviour();
+	WanderBehaviour(ForceDrivenEntity* _owner);
 
+	Vector2 wanderTarget;
 	Vector2 Calculate() override;
 
 	~WanderBehaviour();

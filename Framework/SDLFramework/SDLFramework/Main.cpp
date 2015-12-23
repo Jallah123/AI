@@ -20,7 +20,7 @@ int main(int args[])
 	application->SetColor(Color(255, 10, 40, 255));
 	
 
-	Cow c{};
+	Cow* c = application->cow;
 
 	//while (true){}
 	while (application->IsRunning())

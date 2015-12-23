@@ -1,12 +1,10 @@
 #pragma once
 #include "ForceDrivenEntity.h"
-
-class Cow: 
+class Rabbit :
 	public ForceDrivenEntity
 {
 public:
-	Cow();
-	~Cow();
-protected:
+	Rabbit();
+	~Rabbit();
 	virtual void Update(float dt);
 };

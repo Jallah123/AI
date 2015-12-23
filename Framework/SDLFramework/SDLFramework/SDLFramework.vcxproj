@@ -85,11 +85,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Cow.cpp" />
+    <ClCompile Include="FleeBehaviour.cpp" />
     <ClCompile Include="ForceDrivenEntity.cpp" />
     <ClCompile Include="FWApplication.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MovingEntity.cpp" />
     <ClCompile Include="NumberUtility.cpp" />
+    <ClCompile Include="PersuitBehaviour.cpp" />
+    <ClCompile Include="Rabbit.cpp" />
     <ClCompile Include="SteeringBehaviour.cpp" />
     <ClCompile Include="WanderBehaviour.cpp" />
   </ItemGroup>
@@ -99,13 +102,17 @@
   <ItemGroup>
     <ClInclude Include="Config.h" />
     <ClInclude Include="Cow.h" />
+    <ClInclude Include="FleeBehaviour.h" />
     <ClInclude Include="ForceDrivenEntity.h" />
     <ClInclude Include="FWApplication.h" />
     <ClInclude Include="IGameObject.h" />
     <ClInclude Include="MovingEntity.h" />
     <ClInclude Include="NumberUtility.h" />
+    <ClInclude Include="PersuitBehaviour.h" />
+    <ClInclude Include="Rabbit.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SteeringBehaviour.h" />
+    <ClInclude Include="Vector2.h" />
     <ClInclude Include="WanderBehaviour.h" />
   </ItemGroup>
   <ItemGroup>

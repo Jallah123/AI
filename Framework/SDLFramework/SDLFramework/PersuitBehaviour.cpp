@@ -13,7 +13,7 @@ Vector2 PersuitBehaviour::Calculate()
 Vector2 PersuitBehaviour::Seek(Vector2 target)
 {
 	Vector2 position{ GetOwner()->getX(), GetOwner()->getY() };
-	std::cout << GetOwner()->getX() << ":" << GetOwner()->getY() << '\n';
+	// std::cout << GetOwner()->getX() << ":" << GetOwner()->getY() << '\n';
 	Vector2 desiredVelocity = target - position;
 	desiredVelocity.Normalize();
 	return desiredVelocity - GetOwner()->GetVelocity();
@@ -34,10 +34,11 @@ Vector2 PersuitBehaviour::Persuit(ForceDrivenEntity* evader)
 	//the look-ahead time is proportional to the distance between the evader
 	//and the pursuer; and is inversely proportional to the sum of the
 	//agents' velocities
-	// if you read this, halp
-	double LookAheadTime = ToEvader.Length() / (GetOwner()->GetMaxSpeed() + evader->GetVelocity().x + evader->GetVelocity().y);
+	double LookAheadTime = ToEvader.Length() / (GetOwner()->GetMaxSpeed() + 1);
 	//now seek to the predicted future position of the evader
-	return Seek(evader->GetPosition() + evader->GetVelocity() * LookAheadTime);
+	Vector2 x = evader->GetVelocity() * LookAheadTime;
+	Vector2 t = evader->GetPosition() + x;
+	return Seek(t);
 }
 
 PersuitBehaviour::~PersuitBehaviour()

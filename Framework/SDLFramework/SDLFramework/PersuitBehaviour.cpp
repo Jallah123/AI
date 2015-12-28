@@ -5,7 +5,7 @@ PersuitBehaviour::PersuitBehaviour(ForceDrivenEntity* _owner) : SteeringBehaviou
 {
 }
 
-Vector2 PersuitBehaviour::Calculate(float dt)
+Vector2 PersuitBehaviour::Calculate()
 {
 	return Persuit(FWApplication::GetInstance()->rabbit);
 }
@@ -34,6 +34,7 @@ Vector2 PersuitBehaviour::Persuit(ForceDrivenEntity* evader)
 	//the look-ahead time is proportional to the distance between the evader
 	//and the pursuer; and is inversely proportional to the sum of the
 	//agents' velocities
+	// if you read this, halp
 	double LookAheadTime = ToEvader.Length() / (GetOwner()->GetMaxSpeed() + evader->GetVelocity().x + evader->GetVelocity().y);
 	//now seek to the predicted future position of the evader
 	return Seek(evader->GetPosition() + evader->GetVelocity() * LookAheadTime);

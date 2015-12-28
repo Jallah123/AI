@@ -1,5 +1,5 @@
 #include "Cow.h"
-#include "WanderBehaviour.h"
+#include "PersuitBehaviour.h"
 
 Cow::Cow()
 {
@@ -9,7 +9,7 @@ Cow::Cow()
 	mWidth = 40;
 	mHeight = 40;
 	mApplication->AddRenderable(this);
-	m_Steering = new WanderBehaviour{this};
+	m_Steering = new PersuitBehaviour{this};
 }
 
 void Cow::Update(float dt)

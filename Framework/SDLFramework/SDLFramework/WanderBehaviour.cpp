@@ -17,7 +17,7 @@ Vector2 WanderBehaviour::Calculate()
 
 	wanderTarget *= wanderRadius;
 
-	Vector2 targetLocal = wanderTarget * Vector2{ wanderDistance, 0 };
+	Vector2 targetLocal = wanderTarget * Vector2{ wanderDistance, wanderDistance };
 	Vector2 targetWorld = PointToWorldSpace(targetLocal, GetOwner()->GetHeading(), GetOwner()->GetSide(), GetOwner()->GetPosition());
 
 	return targetWorld - GetOwner()->GetPosition();

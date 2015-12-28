@@ -5,7 +5,7 @@
 class MovingEntity
 {
 protected:
-	Vector2 m_Velocity{ 1, 1 };
+	Vector2 m_Velocity{ -1, 1 };
 	Vector2 m_Heading;
 	Vector2 m_Side;
 

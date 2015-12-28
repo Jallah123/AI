@@ -78,7 +78,7 @@ struct Vector2
 		return *this;
 	}
 
-	Vector2& operator*(const float& multiplier)
+	Vector2 operator*(const float& multiplier)
 	{
 		return Vector2{ x * multiplier, y * multiplier };
 	}

@@ -1,6 +1,8 @@
 #include "WanderBehaviour.h"
 #include "NumberUtility.h"
 #include "ForceDrivenEntity.h"
+#include "FleeBehaviour.h"
+#include "Cow.h"
 
 WanderBehaviour::WanderBehaviour(ForceDrivenEntity* _owner) : SteeringBehaviour(_owner)
 {
@@ -21,6 +23,18 @@ Vector2 WanderBehaviour::Calculate()
 	Vector2 targetWorld = PointToWorldSpace(targetLocal, GetOwner()->GetHeading(), GetOwner()->GetSide(), GetOwner()->GetPosition());
 
 	return targetWorld - GetOwner()->GetPosition();
+}
+
+void WanderBehaviour::CheckState()
+{
+	Cow* c = FWApplication::GetInstance()->cow;
+	float distance = c->DistanceTo(owner);
+
+	if (distance < 50)
+	{
+		owner->setSteeringBehaviour(new FleeBehaviour{owner});
+	}
+
 }
 
 WanderBehaviour::~WanderBehaviour()

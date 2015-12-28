@@ -15,7 +15,9 @@ public:
 	void SetOwner(ForceDrivenEntity* newowner) { owner = newowner; };
 	ForceDrivenEntity* GetOwner() { return owner; };
 	virtual Vector2 Calculate() = 0;
+	virtual void CheckState() = 0;
 	Vector2 Seek(Vector2 Target);
+	virtual std::string ToString() = 0;
 	~SteeringBehaviour();
 protected:
 	ForceDrivenEntity* owner;

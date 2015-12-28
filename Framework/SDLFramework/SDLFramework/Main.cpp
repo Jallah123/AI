@@ -5,6 +5,7 @@
 #include "SDL_timer.h"
 #include <time.h>
 #include "Cow.h"
+#include "Rabbit.h"
 
 int main(int args[])
 {
@@ -45,8 +46,8 @@ int main(int args[])
 		}
 		
 		application->SetColor(Color(0, 0, 0, 255));
-		application->DrawText("Welcome to KMint", 800 / 2, 600 / 2);
-		
+		application->DrawText("RabbitState: " + application->rabbit->getSteeringBehaviour()->ToString(), 800 / 2, 600 / 2);
+
 		// For the background
 		application->SetColor(Color(255, 255, 255, 255));
 

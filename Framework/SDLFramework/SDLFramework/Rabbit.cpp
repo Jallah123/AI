@@ -19,6 +19,7 @@ void Rabbit::Update(float dt)
 	m_Velocity.Truncate(GetMaxSpeed());
 	mX += m_Velocity.x * dt;
 	mY += m_Velocity.y * dt;
+	m_Steering->CheckState();
 }
 
 Rabbit::~Rabbit()

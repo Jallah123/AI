@@ -12,6 +12,8 @@ public:
 
 	Vector2 wanderTarget;
 	Vector2 Calculate() override;
+	std::string ToString() { return "Wander"; };
+	void CheckState();
 
 	~WanderBehaviour();
 };

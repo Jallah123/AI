@@ -27,5 +27,7 @@ public:
 	void SetVelocity(Vector2 velocity) { m_Velocity = velocity; };
 	void SetHeading(Vector2 heading) { m_Heading = heading; };
 	void SetSide(Vector2 side) { m_Side = side; };
+	void setSteeringBehaviour(SteeringBehaviour* newBehaviour) { m_Steering = newBehaviour; };
+	SteeringBehaviour* getSteeringBehaviour() { return m_Steering; };
 	~MovingEntity();
 };

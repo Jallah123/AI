@@ -6,8 +6,10 @@ class FleeBehaviour :
 {
 public:
 	FleeBehaviour(ForceDrivenEntity* _owner);
-	Vector2 Calculate(float dt);
+	Vector2 Calculate();
 	Vector2 Flee(Vector2 TargetPos);
+	void CheckState();
+	std::string ToString() { return "Flee"; };
 	~FleeBehaviour();
 };
 

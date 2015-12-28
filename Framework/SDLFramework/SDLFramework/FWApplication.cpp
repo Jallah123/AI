@@ -189,7 +189,7 @@ void FWApplication::UpdateGameObjects()
 				}
 			}
 		}
-		obj->Update((float)mDeltaTimeMS / 10.0f);
+		obj->Update((float)mDeltaTimeMS / 100.0f);
 	}
 }
 
